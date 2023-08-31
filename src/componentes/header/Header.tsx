@@ -3,7 +3,7 @@ function Header(){
     return(
         <header>
             <div>
-                logo
+                <h1>Barbie</h1>
             </div>
             <nav>
                 <ul>
