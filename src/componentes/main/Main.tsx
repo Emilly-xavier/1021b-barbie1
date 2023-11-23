@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Filme from "../filme/Filme";
+import axios from 'axios';
 import './Main.css'
 type FilmesType = {
     id: number,
@@ -7,6 +8,9 @@ type FilmesType = {
     sinopse:string,
     imagem:string
 }
+
+const URL_API = "http://localhost:3000/filmes";
+
 export default function Main(){
     //Hook
     const [texto,setTexto] = useState("")
