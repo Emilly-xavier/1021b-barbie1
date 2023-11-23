@@ -6,7 +6,7 @@ import './Main.css'
 type FilmesType = {
     id: number,
     titulo:string,
-    sinopse:string,
+    descricao:string,
     imagem:string
 }
 
@@ -32,7 +32,7 @@ export default function Main(){
 
     //A função recebe um atributo chamado e de "event"
     function mudaTexto(e:React.ChangeEvent<HTMLInputElement>){
-        console.log(e.target.value)
+     // console.log(e.target.value)
         setTexto(e.target.value)
     }
     return(
@@ -45,16 +45,21 @@ export default function Main(){
                     <p className='texto_digitado'>pesquisa: {texto}</p>
                 </div>
             </div>
-            <main className="content-main">
-                {filmes.filter((filme)=>filme.titulo.toLowerCase().includes(texto.toLowerCase())).map((filme:FilmesType)=>
-                    <Filme key={filme.id} 
-                           titulo={filme.titulo} 
-                           sinopse={filme.sinopse} 
-                           imagem={filme.imagem}
-                    />
-                    )
-                }
-            </main>
-        </>
-    )
+
+        <main className="content_main">
+        {filmes
+          .filter((filme) =>
+            filme.titulo.toLowerCase().includes(texto.toLowerCase())
+          )
+          .map((filme) => (
+            <Filme
+              key={filme.id}
+              descricao={filme.descricao}
+              titulo={filme.titulo}
+              imagem={filme.imagem}
+            />
+          ))}
+      </main>
+    </>
+  );
 }
